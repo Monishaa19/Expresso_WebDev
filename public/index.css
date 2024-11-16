@@ -1,0 +1,157 @@
+
+header{
+    font-size: 1.5rem;
+    width: 100%;
+    height: 10rem;
+}
+
+.e{
+    font-size: 1.5em;
+}
+
+.S1{
+    font-size: 2em;
+}
+.P{
+    font-size: 3em;
+}
+
+.R{
+    font-size: 4em;
+}
+
+.E{
+    font-size: 5em;
+}
+.S2{
+    font-size: 6em;
+}
+
+.S3{
+    font-size: 7em;
+}
+
+.O{
+    font-size: 8em;
+}
+
+body{
+    background-color: #D3F3EE
+}
+
+.go{
+    background-color: #D3F3EE #7FB7BE #DACC3E  #7D1538 ;
+}
+header span{
+    display: inline-block;
+}
+
+header{
+    margin: 30vh auto auto 30%;
+    color: #BC2C1A;
+    font-family: "Sour Gummy", sans-serif;
+    font-weight: 500;
+    
+}
+
+
+.title span {
+    display: inline-block;
+    opacity: 0;
+}
+
+/* Keyframes for fade-in effect */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Delays for each letter */
+.e { animation: fadeIn 1s forwards;
+    animation-delay: 0.5s; }
+.S1 { animation: fadeIn 1s forwards;
+    animation-delay: 1s; }
+.P { animation: fadeIn 1s forwards;
+    animation-delay: 1.5s; }
+.R { animation: fadeIn 1s forwards;
+    animation-delay: 2s; }
+.E { animation: fadeIn 1s forwards;
+    animation-delay: 2.5s; }
+.S2 { animation: fadeIn 1s forwards;
+    animation-delay: 3s; }
+.S3 { animation: fadeIn 1s forwards;
+    animation-delay: 3.5s; }
+.O { animation: fadeIn 1s forwards;
+    animation-delay:4s; }
+
+    /* Plane animation */
+    .plane {
+        position: relative;
+        width: 50px;
+        opacity: 0;
+        top: 0;
+        left: 500px;
+        height: auto;
+        animation: movePlane 9s forwards; /* Duration matches the last letter animation */
+        animation-delay: 0.5s; /* Start after 'e' appears */
+    }
+
+    @keyframes movePlane {
+        0% {
+            position: relative;
+            left: 25vw;
+            opacity: 1;
+            bottom: 100vh;
+            transform: translateX(0) translateY(-80px);
+        }
+      
+        100% {
+            position: relative;
+            left: 72vw; /* End at the O */
+            opacity: 1;
+            bottom: 100vh;
+            transform: translateX(0) translateY(-150px);
+        }
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+    
+
+/* Video Background */
+.video-container video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity:0.6
+}
+
+/* Arrow Controls */
+.arrow-controls {
+    position: absolute;
+    right:10%;
+    bottom: 10%;
+    display: flex;
+    justify-content: space-between;
+    width: 50px;
+    
+}
+
+
+.arrow {
+    font-size: 2rem;
+    color: #FFF;
+    cursor: pointer;
+    transition: color 0.3s;
+    color: black;
+}
+
+.arrow:hover {
+    color: #FF512F;
+}
+
