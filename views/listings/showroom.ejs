@@ -1,0 +1,118 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="container my-5">
+    <!-- Heading and Intro Section -->
+    <div class="text-center mb-5">
+        <h1 class="display-4"><%= room.name %></h1>
+        <p class="text-muted"><%= room.location %> | <%= room.type %></p>
+        <p class="lead">Distance from City Center: <%= room.distance_from_city_center %></p>
+    </div>
+
+    <div class="row">
+        <!-- Left Column: Image Carousel -->
+        <div class="col-md-4">
+            <div id="carouselExample" class="carousel slide mb-4">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="<%= room.image %>" class="d-block w-100" alt="Image of <%= room.name %>" style="max-height: 300px; object-fit: cover;">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+            
+            <div class="card border-primary mb-3">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">Book Your Stay</h5>
+                   
+    
+                    <form action="/book/room/<%= room._id %>" method="POST">
+                        <!-- Date Picker -->
+                        <div class="mb-3">
+                            <label for="bookingDate" class="form-label">Select Date:</label>
+                            <input type="date" class="form-control" id="bookingDate" name="date" required>
+                        </div>
+                        <!-- Guest Count -->
+                        <div class="mb-3">
+                            <label for="guestCount" class="form-label">Number of Guests:</label>
+                            <input type="number" class="form-control" id="guestCount" name="guests" min="1"  required>
+                        </div>
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn btn-primary w-100">Book Now</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column: Room and Contact Details -->
+        <div class="col-md-8">
+            <!-- Room Details -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Room Details</h5>
+                    <% room.rooms.forEach((roomDetail) => { %>
+                        <h6><%= roomDetail.room_type %> - <%= roomDetail.price_per_night %> per night</h6>
+                        <p><strong>Max Occupancy:</strong> <%= roomDetail.max_occupancy %> people</p>
+                    <% }); %>
+                </div>
+            </div>
+
+            <!-- Amenities -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Amenities</h5>
+                    <ul>
+                        <% room.amenities.forEach((amenity) => { %>
+                            <li><%= amenity %></li>
+                        <% }); %>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Contact Information</h5>
+                    <p><strong>Phone:</strong> <%= room.contact_info.phone %></p>
+                    <p><strong>Email:</strong> <%= room.contact_info.email %></p>
+                    <% if (room.contact_info.website) { %>
+                        <p><strong>Website:</strong> <a href="<%= room.contact_info.website %>" target="_blank"><%= room.contact_info.website %></a></p>
+                    <% } %>
+                </div>
+            </div>
+
+            <!-- Ratings & Reviews -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Ratings & Reviews</h5>
+                    <p><strong>Overall Rating:</strong> <%= room.ratings %> / 5</p>
+
+                    <% room.reviews.forEach((review) => { %>
+                        <div class="review">
+                            <h6><%= review.username %> - <%= review.rating %> / 5</h6>
+                            <p><%= review.comment %></p>
+                        </div>
+                    <% }); %>
+                </div>
+            </div>
+
+            <!-- Policies and Check-in/Check-out Times -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Policies</h5>
+                    <p><strong>Cancellation Policy:</strong> <%= room.cancellation_policy %></p>
+                    <p><strong>Pet Friendly:</strong> <%= room.pet_friendly ? 'Yes' : 'No' %></p>
+                    <p><strong>Smoking Policy:</strong> <%= room.smoking_policy %></p>
+                    <p><strong>Check-in Time:</strong> <%= room.check_in_time %></p>
+                    <p><strong>Check-out Time:</strong> <%= room.check_out_time %></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

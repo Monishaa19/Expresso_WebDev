@@ -1,0 +1,210 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="container my-5">
+    <!-- Heading and pkg Overview Section -->
+    <div class="text-center mb-5">
+        <h1 class="display-4"><%= pkg.pkg_name %></h1>
+        <p class="text-muted">Category: <%= pkg.pkg_category %> | Duration: <%= pkg.duration %></p>
+        <p><strong>Price:</strong> ₹<%= pkg.price %> per person</p>
+        <p><strong>Start Date:</strong> <%= pkg.start_date.toLocaleDateString() %></p>
+        <p><strong>End Date:</strong> <%= pkg.end_date.toLocaleDateString() %></p>
+    </div>
+
+    <div class="row">
+        <!-- Left Column: Image Carousel -->
+        <div class="col-md-4">
+            <div id="carouselExample" class="carousel slide mb-4">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="<%= pkg.image %>" class="d-block w-100" alt="Image of <%= pkg.pkg_name %>" style="max-height: 300px; object-fit: cover;">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+            
+
+            <div class="card border-primary mb-3">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">Book Your Stay</h5>
+                    
+    
+                    <form action="/book/pkg/<%= pkg._id %>" method="POST">
+                        <!-- Date Picker -->
+                        <div class="mb-3">
+                            <label for="bookingDate" class="form-label">Select Date:</label>
+                            <input type="date" class="form-control" id="bookingDate" name="date" required>
+                        </div>
+                        <!-- Guest Count -->
+                        <div class="mb-3">
+                            <label for="guestCount" class="form-label">Number of Guests:</label>
+                            <input type="number" class="form-control" id="guestCount" name="guests" min="1"  required>
+                        </div>
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn btn-primary w-100">Book Now</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Right Column: Detailed Information -->
+        <div class="col-md-8">
+            <!-- Inclusions -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Included Items</h5>
+                    <h6>Accommodation:</h6>
+                    <ul>
+                        <% pkg.included_items.accommodation.forEach((item) => { %>
+                            <li><%= item %></li>
+                        <% }); %>
+                    </ul>
+                    <h6>Meals:</h6>
+                    <ul>
+                        <% pkg.included_items.meals.forEach((item) => { %>
+                            <li><%= item %></li>
+                        <% }); %>
+                    </ul>
+                    <h6>Transport:</h6>
+                    <ul>
+                        <% pkg.included_items.transport.forEach((item) => { %>
+                            <li><%= item %></li>
+                        <% }); %>
+                    </ul>
+                    <p><strong>Tour Guide:</strong> <%= pkg.included_items.tour_guide ? 'Yes' : 'No' %></p>
+                    <p><strong>Entrance Fees Included:</strong> <%= pkg.included_items.entrance_fees ? 'Yes' : 'No' %></p>
+                </div>
+            </div>
+
+            <!-- Itinerary -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Itinerary</h5>
+                    <% pkg.itinerary.forEach((day, index) => { %>
+                        <h6>Day <%= index + 1 %>:</h6>
+                        <p><strong>Activities:</strong></p>
+                        <ul>
+                            <% day.activities.forEach((activity) => { %>
+                                <li><%= activity %></li>
+                            <% }); %>
+                        </ul>
+                        <p><strong>Meals:</strong></p>
+                        <ul>
+                            <% day.meals.forEach((meal) => { %>
+                                <li><%= meal %></li>
+                            <% }); %>
+                        </ul>
+                    <% }); %>
+                </div>
+            </div>
+
+            <!-- Destinations -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Destinations</h5>
+                    <ul>
+                        <% pkg.destinations.forEach((destination) => { %>
+                            <li><%= destination %></li>
+                        <% }); %>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Group Size -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Group Size</h5>
+                    <p><strong>Minimum Group Size:</strong> <%= pkg.group_size.min %> people</p>
+                    <p><strong>Maximum Group Size:</strong> <%= pkg.group_size.max %> people</p>
+                </div>
+            </div>
+
+            <!-- Booking Info -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Booking Information</h5>
+                    <p><strong>Reservation Conditions:</strong> <%= pkg.booking_info.reservation_conditions %></p>
+                    <p><strong>Availability:</strong> <%= pkg.booking_info.availability %></p>
+                </div>
+            </div>
+
+            <!-- Discounts -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Discounts</h5>
+                    <p><strong>Early Booking:</strong> <%= pkg.discounts.early_booking ? 'Available' : 'Not Available' %></p>
+                    <p><strong>Group Booking:</strong> <%= pkg.discounts.group_booking ? 'Available' : 'Not Available' %></p>
+                </div>
+            </div>
+
+            <!-- Customization Options -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Customization Options</h5>
+                    <ul>
+                        <% pkg.customization_options.forEach((option) => { %>
+                            <li><%= option %></li>
+                        <% }); %>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Additional Services -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Additional Services</h5>
+                    <ul>
+                        <% pkg.additional_services.forEach((service) => { %>
+                            <li><%= service %></li>
+                        <% }); %>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Reviews -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Reviews</h5>
+                    <% pkg.reviews.forEach((review) => { %>
+                        <div class="review">
+                            <h6><%= review.username %> - <%= review.rating %> / 5</h6>
+                            <p><%= review.comment %></p>
+                        </div>
+                    <% }); %>
+                </div>
+            </div>
+
+            <!-- Terms and Conditions -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Terms and Conditions</h5>
+                    <p><%= pkg.terms_and_conditions %></p>
+                </div>
+            </div>
+
+            <!-- Age Limit and Accessibility -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Age Limit & Accessibility</h5>
+                    <p><strong>Age Limit:</strong> <%= pkg.age_limit %></p>
+                    <p><strong>Accessible for People with Disabilities:</strong> <%= pkg.accessibility ? 'Yes' : 'No' %></p>
+                </div>
+            </div>
+
+            <!-- Health and Safety Measures -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Health and Safety Measures</h5>
+                    <p><%= pkg.health_safety_measures %></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

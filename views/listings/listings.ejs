@@ -1,0 +1,40 @@
+<% layout("/layouts/boilerplate") %>
+
+<%- include("../includes/searchbar.ejs") %>
+
+<style>
+  a{
+    text-decoration: none;
+  }
+
+  .card-title{
+    color: rgba(0, 0, 0, 0.714);
+  }
+  .card-text{
+    color: rgba(48, 46, 46, 0.583);
+  }
+</style>
+
+<div id="toast-container" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000;"></div>
+
+
+<div class="container mt-5 mb-5">
+    <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
+      <% destinations.forEach(destination => { %>
+        <div class="col">
+          <div class="card">
+           <a href="/dest/<%= destination._id %>"> <img src="<%= destination.images[0] %>" width="150px" height="250px" class="card-img-top" alt="Image of <%= destination.name %>">
+            <div class="card-body">
+              <h5 class="card-title"><%= destination.name %></h5>
+              <p class="card-text"><%= destination.description %></p>
+              <a href="/dest/<%= destination._id %>" class="btn btn-primary">Discover</a>
+            </div>
+          </a>
+          </div>
+        </div>
+      <% }); %>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+  <script src="js/toast.js"></script>

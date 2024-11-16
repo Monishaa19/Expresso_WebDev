@@ -1,0 +1,33 @@
+<% layout("/layouts/boilerplate") %>
+
+<%- include("../includes/searchbar.ejs") %>
+
+<style>
+  a{
+    text-decoration: none;
+  }
+
+  .card-title{
+    color: rgba(0, 0, 0, 0.714);
+  }
+  .card-text{
+    color: rgba(48, 46, 46, 0.583);
+  }
+</style>
+<div class="container mt-5 mb-5">
+    <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
+      <% packages.forEach(package => { %>
+        <div class="col">
+          <div class="card">
+           <a href="/package/<%= package._id %>"> <img src="<%= package.image %>" width="150px" height="250px" class="card-img-top" alt="Image of <%= package.name %>">
+            <div class="card-body">
+              <h5 class="card-title"><%= package.package_name %></h5>
+              <p class="card-text"><%= package.destinations %></p>
+              <a href="/package/<%= package._id %>" class="btn btn-primary">Find itenary</a>
+            </div>
+          </a>
+          </div>
+        </div>
+      <% }); %>
+    </div>
+  </div>
