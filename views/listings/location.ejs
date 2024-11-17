@@ -1,0 +1,85 @@
+<% layout("/layouts/boilerplate") %>
+<link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+<style>
+  section{
+    position: relative;
+    left: 5rem;
+  }
+
+  body{
+    background-color: rgb(182, 202, 219);
+    max-width: 100vw;
+  }
+
+  header{
+    margin-top: 3rem;
+  }
+
+</style>
+
+<body>
+
+  <header>
+    <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bengaluru Travel Guide</h1>
+  </header>
+  
+  <section mt-6>
+    <h2>Cuisine</h2>
+    <p><strong>Description:</strong> <%= destination.cuisine.description %></p>
+    <h3>Popular Dishes:</h3>
+    <ul>
+      <% destination.cuisine.dishes.forEach(function(dish) { %>
+        <li><%= dish %></li>
+      <% }); %>
+    </ul>
+    <h3>Restaurants to Try:</h3>
+    <ul>
+      <% destination.cuisine.restaurants.forEach(function(restaurant) { %>
+        <li><%= restaurant %></li>
+      <% }); %>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Tourist Attractions</h2>
+    <p><strong>Description:</strong> <%= destination.tourist_attractions.description %></p>
+    <h3>Popular Attractions:</h3>
+    <ul>
+      <% destination.tourist_attractions.popular.forEach(function(attraction) { %>
+        <li><%= attraction %></li>
+      <% }); %>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Hidden Gems</h2>
+    <p><strong>Description:</strong> <%= destination.hidden_gems.description %></p>
+    <h3>Places to Visit:</h3>
+    <ul>
+      <% destination.hidden_gems.places.forEach(function(place) { %>
+        <li><%= place %></li>
+      <% }); %>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Handicrafts and Products Near Tata Silk Farm</h2>
+    <p><strong>Description:</strong> <%= destination.handicrafts_products.silk.description %></p>
+    <h3>Products:</h3>
+    <ul>
+      <% destination.handicrafts_products.others.forEach(function(product) { %>
+        <li><%= product %></li>
+      <% }); %>
+    </ul>
+    <h3>Place to Visit for Silk:</h3>
+    <p><%= destination.handicrafts_products.silk.place %></p>
+  </section>
+
+  <script src="js/script.js"></script>
+</body>
