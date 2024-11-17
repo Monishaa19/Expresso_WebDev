@@ -1,0 +1,139 @@
+
+    <style>
+        .carousel-item {
+            height: 500px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .carousel-item img {
+            width: 80%;
+            height: 90%;
+            object-fit: cover;
+            transition: transform 1.5s ease;
+            position: relative;
+            left: 9rem;
+            top:2rem;
+            border-radius: 2rem;
+        }
+        .carousel-item :hover {
+            
+            
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.1); /* Initial slight shadow */
+            
+         
+          }
+    
+          .carousel-item img{
+            transform: translateY(-10px); /* Moves the card up */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Slightly bigger shadow on hover */
+          }
+        
+        .carousel-item.active img {
+            transform: scale(1.1);
+        }
+        
+        .carousel-caption {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+        }
+
+        .carousel-indicators{
+            position: relative;
+            top:20vh; 
+            margin: 2rem;  
+        }
+        
+        .carousel-indicators button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin: 0 8px;
+        }
+        
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 5%;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .carousel:hover .carousel-control-prev,
+        .carousel:hover .carousel-control-next {
+            opacity: 0.8;
+        }
+        .carousel-img {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+          }
+          
+          .carousel-img:hover {
+            transform: translateY(-10px); /* Moves the image up */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Adds box shadow on hover */
+          }
+          
+    </style>
+</head>
+<body>
+
+<div id="imageCarousel" class="carousel slide" data-bs-ride="carousel">
+    <!-- Indicators -->
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="2"></button>
+        <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="3"></button>
+        <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="4"></button>
+    </div>
+
+    <!-- Carousel items -->
+    <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="5000">
+            <img src="https://media.istockphoto.com/id/476111648/photo/sunset-over-indian-ocean.jpg?s=2048x2048&w=is&k=20&c=JhGm6NKx8o2vUPKBMRkD72_pLnHkQc3miZdn_5GVe8s=" alt="First slide">
+            <div class="carousel-caption">
+                <h3>Life is an Adventure</h3>
+                <p>Pack your dreams & Travel to treasure it</p>
+            </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="5000">
+            <img src="https://media.istockphoto.com/id/1341288649/photo/75mpix-panorama-of-beautiful-mount-ama-dablam-in-himalayas-nepal.jpg?s=1024x1024&w=is&k=20&c=pxNX4Ns19juNzCiJInjnjnWjzugXnZBLblSge_rNKLs=" alt="Second slide">
+            <div class="carousel-caption">
+                <h3>Inspire and Explore</h3>
+                <p>The World awaits , go write your story</p>
+            </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="5000">
+            <img src="https://images.pexels.com/photos/33545/sunrise-phu-quoc-island-ocean.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Third slide">
+            <div class="carousel-caption">
+                <h3>Discover Places</h3>
+                <p>Create & Craft unforgettable Memories</p>
+            </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="5000">
+            <img src="https://i.pinimg.com/originals/1d/d9/46/1dd946e58a802b28eebbe56edc47a6b7.jpg" alt="Fourth slide">
+            <div class="carousel-caption">
+                <h3>Travel for the Thrill</h3>
+                <p>Adventure is calling, are you ready to answer</p>
+            </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="5000">
+            <img src="https://images.pexels.com/photos/33545/sunrise-phu-quoc-island-ocean.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Fifth slide">
+            <div class="carousel-caption">
+                <h3>Turn moments into memories</h3>
+                <p>Travel for,live fully and cherish forever</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#imageCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </button>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
