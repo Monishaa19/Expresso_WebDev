@@ -1,0 +1,49 @@
+{
+  "cuisine": {
+    "description": "Bengaluru's cuisine is a blend of South Indian staples with influences from across India and the world. Traditional dishes like dosa, idli, vada, and bisi bele bath are readily available, alongside North Indian curries, Chinese dishes, and international cuisines.  Udupi restaurants are popular for their vegetarian fare.",
+    "specialities": [
+      "Bisi bele bath",
+      "Masala dosa",
+      "Idli",
+      "Vada",
+      "Rava idli",
+      "Mysore pak",
+      "Dharwad peda"
+    ]
+  },
+  "tourist_attractions": {
+    "popular_sites": [
+      "Bangalore Palace",
+      "Cubbon Park",
+      "Lal Bagh Botanical Garden",
+      "Vidhana Soudha",
+      "Bannerghatta National Park",
+      "ISKCON Temple",
+      "Wonderla Amusement Park"
+    ]
+  },
+  "hidden_gems": {
+    "offbeat_places": [
+      "Nandi Hills (for scenic views and trekking)",
+      "Guhantara Resort (cave resort)",
+      "Nrityagram (dance village)",
+      "Anthargange (cave exploration)",
+      "Grover Vineyard (wine tasting)",
+      "Chunchi falls",
+      "Skandagiri night trek"
+    ]
+  },
+  "handicrafts_and_products": {
+    "from_tata_silk_farm_and_bengaluru": [
+      "Silk sarees (especially from Tata Silk Farm)",
+      "Silk fabrics",
+      "Garments",
+      "Traditional handicrafts (wood carvings, sandalwood products)",
+      "Incense sticks",
+      "Coffee",
+      "Mysore paintings"
+    ],
+    "note_on_tata_silk_farm": "Tata Silk Farm, though historically significant in sericulture, may not be a currently operating tourist destination. It's important to verify its accessibility before planning a visit.  Silk products are still widely available throughout Bengaluru."
+  }
+}
+

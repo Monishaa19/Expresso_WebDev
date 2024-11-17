@@ -1,0 +1,62 @@
+{
+    "name": "Kanyakumari",
+    "location": "Tamil Nadu, India",
+    "description": "Kanyakumari is a coastal town in the state of Tamil Nadu, India. It is the southernmost point of peninsular India and is known for its beautiful beaches, temples, and the confluence of three seas - the Bay of Bengal, the Arabian Sea, and the Indian Ocean.",
+    "images": [
+        "https://example.com/kanyakumari1.jpg",
+        "https://example.com/kanyakumari2.jpg"
+    ],
+    "coordinates": {
+        "latitude": 8.0883,
+        "longitude": 77.5385
+    },
+    "category": "Coastal Town",
+    "rating": 4.5,
+    "historicalSignificance": "Kanyakumari has been a significant center of trade, pilgrimage, and culture for centuries.",
+    "bestTimeToVisit": "October to March",
+    "entryFee": {
+        "currency": "INR",
+        "amount": 50
+    },
+    "openingHours": {
+        "monday": "9:00 AM - 5:00 PM",
+        "tuesday": "9:00 AM - 5:00 PM",
+        "wednesday": "9:00 AM - 5:00 PM",
+        "thursday": "9:00 AM - 5:00 PM",
+        "friday": "9:00 AM - 5:00 PM",
+        "saturday": "9:00 AM - 5:00 PM",
+        "sunday": "9:00 AM - 5:00 PM"
+    },
+    "activities": [
+        "Boat rides to Vivekananda Rock Memorial",
+        "Visiting the Thiruvalluvar Statue",
+        "Sunset viewing"
+    ],
+    "nearbyAttractions": [
+        "Suchindram Temple",
+        "Padmanabhapuram Palace"
+    ],
+    "accessibility": "Easily accessible by road and rail",
+    "travelTips": "Book accommodations in advance, especially during peak season.",
+    "contactInfo": {
+        "phone": "+91-4652-XXXXXXX",
+        "email": "tourism.kanyakumari@example.com",
+        "website": "https://www.kanyakumaritourism.org"
+    },
+    "reviews": [],
+    "tags": [
+        "beach",
+        "temple",
+        "sunset",
+        "pilgrimage"
+    ],
+    "weatherInfo": {
+        "summer": "Hot and humid",
+        "winter": "Pleasant and cool"
+    },
+    "safetyInfo": "Generally safe for tourists, but it is advisable to be cautious of your belongings.",
+    "popularityScore": 8.5,
+    "travelGuideAvailable": true,
+    "photographersTips": "Golden hour is the best time for photography, capturing the stunning sunset views."
+}
+

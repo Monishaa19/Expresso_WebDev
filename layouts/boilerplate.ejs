@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Espresso</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="icon" href="../../plane.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      body {
+        background-color: aliceblue;
+      }
+
+      .card {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Initial slight shadow */
+        background-color: #fff;
+        color: black;
+      }
+
+      .card:hover {
+        transform: translateY(-10px); /* Moves the card up */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Slightly bigger shadow on hover */
+      }
+
+      /* Default light mode styles */
+      body {
+        background-color: white;
+        color: black;
+      }
+
+      nav {
+        background-color: #f0f0f0;
+      }
+
+      /* Dark mode styles */
+      body.dark-mode {
+        background-color: #121212;
+        color: white;
+      }
+
+      nav.dark-mode {
+        background-color: #333;
+      }
+
+      .card.dark-mode {
+        background-color: #121212;
+        color: #ddd;
+      }
+      /* Add smooth transition */
+
+      body {
+        background-color: aliceblue;
+        color: black;
+        transition: background-color 0s, color 0.3s;
+      }
+
+      nav {
+        background-color: #f0f0f0;
+      }
+
+      /* Dark mode styles */
+      body.dark-mode {
+        background-color: #121212;
+        color: white;
+      }
+
+      nav.dark-mode {
+        background-color: #333;
+      }
+      .fas {
+        width: 20px;
+        height: 10px;
+        position: relative;
+        right: 40px;
+        bottom: 5px;
+      }
+      /* Toggle button style */
+      #theme-toggle {
+        background-color: #f0f0f0;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        border-radius: 5px;
+      }
+
+      i {
+        font-size: 30px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+      }
+
+      i:hover {
+        color: red;
+      }
+
+      /* Hide the second heart icon by default */
+      #heart2 {
+        display: none;
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <%- include("../includes/navbar.ejs") %>
+    <%- include("../includes/carousel.ejs") %>
+    <!-- Add this to your HTML file -->
+
+    <%- body %> <%- include("../includes/footer.ejs") %>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/script.js"></script>
+    <script>
+      const toggleButton = document.getElementById("theme-toggle");
+      const body = document.body;
+      const icon = toggleButton.querySelector(".icon i");
+      const cards = document.querySelectorAll(".card");
+
+      // Check localStorage to see if the user has a preferred theme
+      const currentTheme = localStorage.getItem("theme");
+      if (currentTheme) {
+        body.classList.add(currentTheme);
+        if (currentTheme === "dark-mode") {
+          icon.classList.remove("fa-sun");
+          icon.classList.add("fa-moon");
+        }
+      }
+
+      // Toggle theme on button click
+      toggleButton.addEventListener("click", () => {
+        body.classList.toggle("dark-mode"); // Toggle dark mode
+        const theme = body.classList.contains("dark-mode")
+          ? "dark-mode"
+          : "light-mode";
+        localStorage.setItem("theme", theme); // Save the selected theme in localStorage
+
+        // Change icon based on the current theme
+        if (theme === "dark-mode") {
+          icon.classList.remove("fa-sun");
+          icon.classList.add("fa-moon");
+          cards.forEach((card) => card.classList.add("dark-mode"));
+        } else {
+          icon.classList.remove("fa-moon");
+          icon.classList.add("fa-sun");
+          cards.forEach((card) => card.classList.remove("dark-mode"));
+        }
+      });
+    </script>
+    <script>
+      function toggleHeart(action) {
+        const heart1 = document.getElementById("heart1");
+        const heart2 = document.getElementById("heart2");
+
+        // Toggle visibility of the heart icons
+        if (action === "like") {
+          heart1.style.display = "none"; // Hide the first heart (unfilled)
+          heart2.style.display = "inline"; // Show the second heart (filled)
+          console.log(window.location.pathname);
+          path=window.location.pathname // e.g., '/path'
+          const parts = path.split("/"); // Splits by '/'
+
+          // Extract schema and id
+          const schema = parts[1]; // "dest"
+          const id = parts[2];
+          // Send a request to the server to like
+          fetch("/like", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              schema:schema,
+              id:id
+            }),
+            // optional data if you need it
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              console.log("Liked:", data);
+            })
+            .catch((error) => console.error("Error:", error));
+        } else {
+          heart1.style.display = "inline"; // Show the first heart (unfilled)
+          heart2.style.display = "none"; // Hide the second heart (filled)
+          console.log(window.location.pathname);
+          path=window.location.pathname // e.g., '/path'
+          const parts = path.split("/"); // Splits by '/'
+
+          // Extract schema and id
+          const schema = parts[1]; // "dest"
+          const id = parts[2];
+          // Send a request to the server to like
+          // Send a request to the server to unlike
+          fetch("/unlike", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                schema:schema,
+                id:id
+              }), // optional data if you need it
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              console.log("Unliked:", data);
+            })
+            .catch((error) => console.error("Error:", error));
+        }
+      }
+    </script>
+  </body>
+</html>

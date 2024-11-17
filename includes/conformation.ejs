@@ -1,0 +1,12 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="container">
+    <div class="alert alert-success my-5">
+        <h4 class="alert-heading">Booking Confirmed!</h4>
+        <p>Thank you for booking <%= booking.destination.name %>.</p>
+        <hr>
+        <p><strong>Date:</strong> <%= booking.date.toDateString() %></p>
+        <p><strong>Number of Guests:</strong> <%= booking.guests %></p>
+        <p>We look forward to hosting you!</p>
+    </div>
+</div>
