@@ -1,0 +1,104 @@
+{
+  city: {
+    names: { en: 'Bengaluru (Tata Silk Farm)' },
+    name: 'Bengaluru (Tata Silk Farm)'
+  },
+  continent: {
+    code: 'AS',
+    geoname_id: 6255147,
+    names: {
+      de: 'Asien',
+      en: 'Asia',
+      es: 'Asia',
+      fa: ' آسیا',
+      fr: 'Asie',
+      ja: 'アジア大陸',
+      ko: '아시아',
+      'pt-BR': 'Ásia',
+      ru: 'Азия',
+      'zh-CN': '亚洲'
+    },
+    name: 'Asia'
+  },
+  country: {
+    geoname_id: 1269750,
+    iso_code: 'IN',
+    names: {
+      de: 'Indien',
+      en: 'India',
+      es: 'India',
+      fa: 'هند',
+      fr: 'Inde',
+      ja: 'インド',
+      ko: '인도',
+      'pt-BR': 'Índia',
+      ru: 'Индия',
+      'zh-CN': '印度'
+    },
+    name: 'India',
+    name_native: 'भारत',
+    phone_code: '91',
+    capital: 'New Delhi',
+    currency: 'INR',
+    flag: '🇮🇳'  ,
+    languages: [ [Object], [Object] ]
+  },
+  location: { latitude: 12.9634, longitude: 77.5855 },
+  subdivisions: [ { names: [Object] } ],
+  state: { name: 'Karnataka' },
+  datasource: [
+    {
+      name: 'IP to City Lite',
+      attribution: "<a href='https://db-ip.com'>IP Geolocation by DB-IP</a>",
+      license: 'Creative Commons Attribution License'
+    }
+  ],
+  ip: '103.105.227.34'
+}
+
+{
+  cuisine: {
+    description: "Bengaluru's cuisine is a blend of traditional South Indian flavors with modern influences.  It's known for its dosas, idlis, vadas, and uttapams, as well as a variety of rice dishes like Bisi Bele Bath and Puliyogare.  Street food is popular, with options like Masala Dosa, Pani Puri, and Chaat.  The city also has a growing cosmopolitan food scene, featuring 
+diverse cuisines from around the world.",
+    dishes: [
+      'Masala Dosa',
+      'Idli',
+      'Vada',
+      'Bisi Bele Bath',
+      'Puliyogare',
+      'Mysore Pak'
+    ],
+    restaurants: [ 'MTR', 'CTR', 'Mavalli Tiffin Rooms', 'Vidyarthi Bhavan' ]
+  },
+  tourist_attractions: {
+    popular: [
+      'Bangalore Palace',
+      'Cubbon Park',
+      'Lal Bagh Botanical Garden',
+      'ISKCON Temple',
+      'Vidhana Soudha',
+      'Bannerghatta National Park'
+    ],
+    description: 'Bengaluru offers a mix of historical sites, gardens, and modern entertainment. Bangalore Palace is a Tudor-style architectural marvel.  Cubbon Park and Lal Bagh are expansive green spaces offering tranquility within the city.  ISKCON Temple is a significant spiritual site. Vidhana Soudha is the state legislative assembly building known for its imposing architecture. Bannerghatta National Park offers wildlife encounters.'
+  },
+  hidden_gems: {
+    places: [
+      'Nrityagram Dance Village',
+      'Guhantara Resort',
+      'Grover Zampa Vineyards',
+      'Big Banyan Tree',
+      'Devanahalli Fort'
+    ],
+    description: 'Nrityagram is a unique dance village showcasing traditional Indian dance forms. Guhantara Resort is an underground cave resort offering a unique experience. Grover Zampa Vineyards allows visitors to explore winemaking. The Big Banyan Tree is a sprawling natural wonder. Devanahalli Fort is a historical site with links to Tipu Sultan.'
+  },
+  handicrafts_products: {
+    silk: {
+      place: 'Tata Silk Farm',
+      description: 'Tata Silk Farm, located near Bengaluru, is known for its silk production and offers insights into the process from silkworm rearing to weaving. Visitors can witness the 
+different stages of silk production and purchase silk products.  The farm plays a significant role in the silk industry in the region.'
+    },
+    others: [ 'Sandalwood products', 'Metal crafts', 'Toys' ],
+    description: 'Bengaluru and its surrounding areas are known for sandalwood products, including carvings, incense sticks, and oils.  Metal crafts, especially brass and bronze items, are 
+also popular.  Channapatna toys are another famous handicraft from the region, made from wood and known for their vibrant colors.'
+  }
+}

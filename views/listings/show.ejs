@@ -1,121 +1,182 @@
 <% layout("/layouts/boilerplate") %>
 
 <div class="container my-5">
-    <!-- Heading and Intro Section -->
-    <div class="text-center mb-5">
-        <h1 class="display-4"><%= destination.name %></h1>
-        <p class="text-muted"><%= destination.location %></p>
-        <p class="lead"><%= destination.description %></p>
-    </div>
+  <!-- Heading and Intro Section -->
+  <div class="text-center mb-5">
+    <h1 class="display-4"><%= destination.name %></h1>
+    <p class="text-muted"><%= destination.location %></p>
+    <p class="lead"><%= destination.description %></p>
+  </div>
 
-    <div class="row">
-        <!-- Left Column: Image Carousel -->
-        <div class="col-md-4">
-            <div id="carouselExample" class="carousel slide mb-4">
-                <div class="carousel-inner">
-                    <% destination.images.forEach((image, index) => { %>
-                        <div class="carousel-item <%= index === 0 ? 'active' : '' %>">
-                            <img src="<%= image %>" class="d-block w-100" alt="Image of <%= destination.name %>" style="max-height: 300px; object-fit: cover;">
-                        </div>
-                    <% }); %>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
+  <div class="row">
+    <!-- Left Column: Image Carousel -->
+    <div class="col-md-4">
+      <div id="carouselExample" class="carousel slide mb-4">
+        <div class="carousel-inner">
+          <% destination.images.forEach((image, index) => { %>
+          <div class="carousel-item <%= index === 0 ? 'active' : '' %>">
+            <img
+              src="<%= image %>"
+              class="d-block w-100"
+              alt="Image of <%= destination.name %>"
+              style="max-height: 300px; object-fit: cover"
+            />
+          </div>
+          <% }); %>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExample"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExample"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
 
-
-            <!-- Book Tickets Section -->
-        <div class="card border-primary mb-3">
-            <div class="card-body">
-                <h5 class="card-title text-primary">Book Your Stay</h5>
-                <!-- <p><strong>Price:</strong> ₹<%= destination.price %></p>
+      <!-- Book Tickets Section -->
+      <div class="card border-primary mb-3">
+        <div class="card-body">
+          <h5 class="card-title text-primary">Book Your Stay</h5>
+          <!-- <p><strong>Price:</strong> ₹<%= destination.price %></p>
                 <p><strong>Available Slots:</strong> <%= destination.availableSlots %></p> -->
 
-                <form action="/book/dest/<%= destination._id %>" method="POST">
-                    <!-- Date Picker -->
-                    <div class="mb-3">
-                        <label for="bookingDate" class="form-label">Select Date:</label>
-                        <input type="date" class="form-control" id="bookingDate" name="date" required>
-                    </div>
-                    <!-- Guest Count -->
-                    <div class="mb-3">
-                        <label for="guestCount" class="form-label">Number of Guests:</label>
-                        <input type="number" class="form-control" id="guestCount" name="guests" min="1"  required>
-                    </div>
-                    <!-- Submit Button -->
-                    <button type="submit" class="btn btn-primary w-100">Book Now</button>
-                </form>
+          <form action="/book/dest/<%= destination._id %>" method="POST">
+            <!-- Date Picker -->
+            <div class="mb-3">
+              <label for="bookingDate" class="form-label">Select Date:</label>
+              <input
+                type="date"
+                class="form-control"
+                id="bookingDate"
+                name="date"
+                required
+              />
             </div>
+            <!-- Guest Count -->
+            <div class="mb-3">
+              <label for="guestCount" class="form-label"
+                >Number of Guests:</label
+              >
+              <input
+                type="number"
+                class="form-control"
+                id="guestCount"
+                name="guests"
+                min="1"
+                required
+              />
+            </div>
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary w-100">
+              Book Now
+            </button>
+          </form>
         </div>
+      </div>
+
+      <div>
+      <!-- Heart Icons -->
+<i class="fas fa-heart" id="heart1" onclick="toggleHeart('like')"></i> <!-- Unfilled Heart -->
+<i class="fas fa-heart-broken" id="heart2" onclick="toggleHeart('unlike')"></i> <!-- Filled Heart -->
 
 
-        </div>
-
-        <!-- Right Column: Details -->
-        <div class="col-md-8">
-            <!-- Coordinates and Category -->
-            <div class="card mb-4">
-                <div class="card-body">
-                    <h5 class="card-title">Details</h5>
-                    <p><strong>Category:</strong> <%= destination.category %></p>
-                    <p><strong>Coordinates:</strong> Latitude: <%= destination.coordinates.latitude %>, Longitude: <%= destination.coordinates.longitude %></p>
-                    <p><strong>Rating:</strong> <%= destination.rating %> / 5</p>
-                </div>
-            </div>
-
-            <!-- Historical Significance -->
-            <div class="card mb-4">
-                <div class="card-body">
-                    <h5 class="card-title">Historical Significance</h5>
-                    <p><%= destination.historicalSignificance %></p>
-                </div>
-            </div>
-
-            <!-- Best Time to Visit & Weather Info -->
-            <div class="card mb-4">
-                <div class="card-body">
-                    <h5 class="card-title">Best Time to Visit & Weather Info</h5>
-                    <p><strong>Best Time:</strong> <%= destination.bestTimeToVisit %></p>
-                    <p><strong>Weather:</strong> Summer: <%= destination.weatherInfo.summer %>, Winter: <%= destination.weatherInfo.winter %></p>
-                </div>
-            </div>
-
-            <!-- Entry Fee & Opening Hours -->
-            <div class="card mb-4">
-                <div class="card-body">
-                    <h5 class="card-title">Entry Fee & Opening Hours</h5>
-                    <p><strong>Entry Fee:</strong> <%= destination.entryFee.currency %> <%= destination.entryFee.amount %></p>
-                    <p><strong>Opening Hours:</strong></p>
-                    <ul>
-                        <li>Monday: <%= destination.openingHours.monday %></li>
-                        <li>Tuesday: <%= destination.openingHours.tuesday %></li>
-                        <li>Wednesday: <%= destination.openingHours.wednesday %></li>
-                        <li>Thursday: <%= destination.openingHours.thursday %></li>
-                        <li>Friday: <%= destination.openingHours.friday %></li>
-                        <li>Saturday: <%= destination.openingHours.saturday %></li>
-                        <li>Sunday: <%= destination.openingHours.sunday %></li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Additional Information -->
-            <div class="card mb-4">
-                <div class="card-body">
-                    <h5 class="card-title">Additional Information</h5>
-                    <p><strong>Activities:</strong> <%= destination.activities.join(", ") %></p>
-                    <p><strong>Nearby Attractions:</strong> <%= destination.nearbyAttractions.join(", ") %></p>
-                    <p><strong>Accessibility:</strong> <%= destination.accessibility %></p>
-                    <p><strong>Safety Info:</strong> <%= destination.safetyInfo %></p>
-                    <p><strong>Travel Guide Available:</strong> <%= destination.travelGuideAvailable ? "Yes" : "No" %></p>
-                    <p><strong>Photographers' Tips:</strong> <%= destination.photographersTips %></p>
-                </div>
-            </div>
-        </div>
     </div>
+    </div>
+
+    <!-- Right Column: Details -->
+    <div class="col-md-8">
+      <!-- Coordinates and Category -->
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Details</h5>
+          <p><strong>Category:</strong> <%= destination.category %></p>
+          <p>
+            <strong>Coordinates:</strong> Latitude: <%=
+            destination.coordinates.latitude %>, Longitude: <%=
+            destination.coordinates.longitude %>
+          </p>
+          <p><strong>Rating:</strong> <%= destination.rating %> / 5</p>
+        </div>
+      </div>
+
+      <!-- Historical Significance -->
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Historical Significance</h5>
+          <p><%= destination.historicalSignificance %></p>
+        </div>
+      </div>
+
+      <!-- Best Time to Visit & Weather Info -->
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Best Time to Visit & Weather Info</h5>
+          <p><strong>Best Time:</strong> <%= destination.bestTimeToVisit %></p>
+          <p>
+            <strong>Weather:</strong> Summer: <%= destination.weatherInfo.summer
+            %>, Winter: <%= destination.weatherInfo.winter %>
+          </p>
+        </div>
+      </div>
+
+      <!-- Entry Fee & Opening Hours -->
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Entry Fee & Opening Hours</h5>
+          <p>
+            <strong>Entry Fee:</strong> <%= destination.entryFee.currency %> <%=
+            destination.entryFee.amount %>
+          </p>
+          <p><strong>Opening Hours:</strong></p>
+          <ul>
+            <li>Monday: <%= destination.openingHours.monday %></li>
+            <li>Tuesday: <%= destination.openingHours.tuesday %></li>
+            <li>Wednesday: <%= destination.openingHours.wednesday %></li>
+            <li>Thursday: <%= destination.openingHours.thursday %></li>
+            <li>Friday: <%= destination.openingHours.friday %></li>
+            <li>Saturday: <%= destination.openingHours.saturday %></li>
+            <li>Sunday: <%= destination.openingHours.sunday %></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Additional Information -->
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Additional Information</h5>
+          <p>
+            <strong>Activities:</strong> <%= destination.activities.join(", ")
+            %>
+          </p>
+          <p>
+            <strong>Nearby Attractions:</strong> <%=
+            destination.nearbyAttractions.join(", ") %>
+          </p>
+          <p>
+            <strong>Accessibility:</strong> <%= destination.accessibility %>
+          </p>
+          <p><strong>Safety Info:</strong> <%= destination.safetyInfo %></p>
+          <p>
+            <strong>Travel Guide Available:</strong> <%=
+            destination.travelGuideAvailable ? "Yes" : "No" %>
+          </p>
+          <p>
+            <strong>Photographers' Tips:</strong> <%=
+            destination.photographersTips %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

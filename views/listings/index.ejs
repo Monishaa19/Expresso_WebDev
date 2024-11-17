@@ -184,9 +184,9 @@ h3{
     z-index: -1;
     opacity:0.6
 }
-/**
+
 .modal-content {
-    background: linear-gradient(135deg, #6b9dfa, #b09dfa);
+    background: aliceblue;
     color: white;
     border-radius: 15px;
   }
@@ -203,7 +203,7 @@ h3{
   .btn-custom:hover {
     background-color: #3b6bd6;
     border-color: #3b6bd6;
-  } */
+  }
 
 
 .arrow {
@@ -222,6 +222,35 @@ h3{
     position:relative;
     bottom: 80px;
 }
+/* Modal background color */
+.modal-content {
+    background-color: aliceblue;
+}
+
+/* Title style */
+.modal-title {
+    color: rgba(0, 0, 0, 0.587);
+    font-weight: bold;
+}
+
+/* Placeholder text color */
+::placeholder {
+    color: black;
+    opacity: 1; /* Ensures consistent visibility across browsers */
+}
+
+/* Bootstrap button for Login */
+.btn-custom {
+    background-color: #0d6efd; /* Bootstrap primary button color */
+    color: white;
+    border: none;
+}
+
+.btn-custom:hover {
+    background-color: #0b5ed7; /* Slightly darker shade on hover */
+    color: white;
+}
+
 
 
 .auth{
@@ -243,10 +272,18 @@ form{
     display: inline;
 }
 
+.form-label{
+    color: #DD2476;
+}
+
 
 </style>
 </head>
 <body>
+    <audio id="background-music" loop autoplay>
+        <source src="assets/vellake.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
 
     <div class="logo" >
         <img src="assets/expresso.png" alt="logo" width="150px" height="100px">
@@ -299,13 +336,11 @@ form{
     </div>
 
      <!-- Login Modal -->
-x
-
-      <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+     <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title mx-auto" id="signupModalLabel">signup to Your Account</h5>
+              <h5 class="modal-title mx-auto" id="loginModalLabel">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Login to Your Account</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -318,7 +353,31 @@ x
                   <label for="password" class="form-label">Password</label>
                   <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
                 </div>
-                <button type="submit" class="btn btn-custom w-10">signup</button>
+                <button type="submit" class="btn btn-outline-secondary btn-lg">Login</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title mx-auto" id="signupModalLabel">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Signup to Your Account</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form action="/signup" method="POST">
+                <div class="mb-4">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="mb-4">
+                  <label for="password" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="btn btn-outline-secondary btn-lg">Sign up</button>
               </form>
             </div>
           </div>
@@ -349,7 +408,7 @@ x
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
       
         <script src="js/script.js"></script>
-
+        <script src="sweetalert2.all.min.js"></script>
 
 </body>
 </html>

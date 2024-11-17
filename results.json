@@ -1,49 +1,47 @@
 {
-    "name": "Udaipur",
-    "location": "Rajasthan, India",
-    "description": "Udaipur, also known as the 'City of Lakes', is a beautiful city in Rajasthan, India.  It is renowned for its stunning palaces, serene lakes, and vibrant culture.",
+    "name": "India Gate",
+    "location": "New Delhi, India",
+    "description": "The India Gate is a war memorial located astride the Rajpath, on the eastern edge of the ‘ceremonial axis’ of New Delhi, formerly called Kingsway. It stands as a memorial to 82,000 soldiers of the British Indian Army who died between 1914 and 1921 in the First World War.",
     "images": [
-        "https://example.com/udaipur1.jpg",
-        "https://example.com/udaipur2.jpg"
+        "https://upload.wikimedia.org/wikipedia/commons/a/a8/India_Gate_Delhi_2016.jpg",
+        "https://www.holidify.com/images/cmsuploads/compressed/India_Gate_20190726115936.JPG"
     ],
     "coordinates": {
-        "latitude": 24.5854,
-        "longitude": 73.7125
+        "latitude": 28.612912,
+        "longitude": 77.2295087
     },
-    "category": "City",
+    "category": "Monument",
     "rating": 4.5,
-    "historicalSignificance": "Founded in 1559 by Maharana Udai Singh II as the new capital of the Mewar kingdom.",
-    "bestTimeToVisit": "September to March",
+    "historicalSignificance": "The India Gate is a memorial to the soldiers of the British Indian Army who died in World War I and the Third Anglo-Afghan War.",
+    "bestTimeToVisit": "October to March",
     "entryFee": {
         "currency": "INR",
         "amount": 0
     },
     "openingHours": {
-        "monday": "9:00 AM - 5:00 PM",
-        "tuesday": "9:00 AM - 5:00 PM",
-        "wednesday": "9:00 AM - 5:00 PM",
-        "thursday": "9:00 AM - 5:00 PM",
-        "friday": "9:00 AM - 5:00 PM",
-        "saturday": "9:00 AM - 5:00 PM",
-        "sunday": "9:00 AM - 5:00 PM"
+        "monday": "24 hours",
+        "tuesday": "24 hours",
+        "wednesday": "24 hours",
+        "thursday": "24 hours",
+        "friday": "24 hours",
+        "saturday": "24 hours",
+        "sunday": "24 hours"
     },
-    "activities": ["Boating", "Sightseeing", "Shopping", "Photography"],
-    "nearbyAttractions": ["City Palace", "Lake Pichola", "Jag Mandir", "Saheliyon Ki Bari"],
-    "accessibility": "Wheelchair accessible in many areas, but some historical sites may have limitations.",
-    "travelTips": "Carry light clothing and sunscreen. Book accommodations in advance, especially during peak season.",
+    "activities": ["Photography", "Strolling"],
+    "nearbyAttractions": ["Rashtrapati Bhavan", "Parliament House", "National War Memorial"],
+    "accessibility": "Wheelchair accessible",
+    "travelTips": "Visit in the evening for the light show.",
     "contactInfo": {
-        "phone": "+91-XXXXXXXXX",
-        "email": "udaipur_tourism@example.com",
-        "website": "www.udaipurtourism.com"
+
     },
     "reviews": [],
-    "tags": ["lakes", "palaces", "culture", "history", "Rajasthan"],
+    "tags": ["historical", "monument", "war memorial", "Delhi", "India"],
     "weatherInfo": {
         "summer": "Hot and dry",
         "winter": "Pleasant and cool"
     },
-    "safetyInfo": "Generally safe for tourists.  Be mindful of your belongings and surroundings.",
-    "popularityScore": 8.5,
+    "safetyInfo": "Generally safe, but be aware of your surroundings.",
+    "popularityScore": 90,
     "travelGuideAvailable": true,
-    "photographersTips": "Golden hour provides excellent lighting for capturing the beauty of the lakes and palaces."
+    "photographersTips": "Best time for photography is during sunrise and sunset."
 }

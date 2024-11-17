@@ -1,0 +1,62 @@
+{
+  "cuisine": {
+    "description": "Bengaluru's cuisine is a blend of traditional South Indian flavors with modern influences.  Expect a variety of dosas, idlis, vadas, and other rice-based dishes.  The city also boasts excellent biryani, kebabs, and North Indian fare. Udupi cuisine, known for its vegetarian dishes, is also prominent. Don't miss trying local specialties like Bisi Bele Bath, Masala Dosa, and Obbattu.",
+    "recommendations": [
+      "MTR",
+      "Mavalli Tiffin Rooms",
+      "CTR (Central Tiffin Room)",
+      "Vidyarthi Bhavan"
+    ]
+  },
+  "tourist_attractions": {
+    "popular": [
+      "Bangalore Palace",
+      "Cubbon Park",
+      "Lal Bagh Botanical Garden",
+      "Bannerghatta National Park",
+      "ISKCON Temple",
+      "Wonderla Amusement Park"
+    ],
+    "near_tata_silk_farm": [
+      "Devanahalli Fort",
+      "Nandi Hills"
+    ]
+  },
+  "hidden_gems": {
+    "description": "Beyond the well-trodden tourist paths, Bengaluru offers unique experiences.",
+    "places": [
+      "Ranganathittu Bird Sanctuary (slightly outside Bengaluru but worth the trip)",
+      "Grover Zampa Vineyards",
+      "Guhantara Cave Resort",
+      "Art Blend Cafe (for art enthusiasts)",
+      "Atta Galatta (bookstore and cultural space)"
+    ]
+  },
+  "cultural_events": {
+    "description": "Bengaluru has a vibrant cultural scene with numerous events throughout the year. Check local listings for the most up-to-date information.",
+    "examples": [
+       {
+        "name": "Bangalore International Film Festival",
+        "time": "Usually held in February/March"
+       },
+       {
+           "name": "Karnataka Rajyotsava",
+           "time": "November 1st (State Formation Day)"
+       }
+
+    ]
+  },
+  "handicrafts_and_products": {
+    "famous_around_tata_silk_farm": [
+      "Silk products (especially from Tata Silk Farm itself)",
+      "Traditional handicrafts",
+      "Wooden toys and carvings"
+    ],
+    "citywide": [
+      "Mysore Sandal Soap",
+      "Incense sticks",
+      "Metal crafts"
+    ]
+  }
+}
+
